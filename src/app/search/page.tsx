@@ -1,233 +1,143 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import { MagnifyingGlassIcon, FunnelIcon, XMarkIcon } from '@heroicons/react/24/outline'
-
-const searchResults = [
-  {
-    id: 1,
-    title: 'Ancient Egypt',
-    category: 'Civilization',
-    period: '3000 BCE - 30 BCE',
-    description: 'One of the world\'s oldest civilizations, known for pyramids, pharaohs, and the Nile River.',
-    relevance: 95,
-  },
-  {
-    id: 2,
-    title: 'Roman Empire',
-    category: 'Empire',
-    period: '27 BCE - 476 CE',
-    description: 'The ancient Roman state that dominated the Mediterranean world for centuries.',
-    relevance: 92,
-  },
-  {
-    id: 3,
-    title: 'Great Wall of China',
-    category: 'Architecture',
-    period: '7th century BCE - 1644 CE',
-    description: 'A series of fortifications built along the northern borders of China.',
-    relevance: 88,
-  },
-  {
-    id: 4,
-    title: 'Renaissance',
-    category: 'Cultural Movement',
-    period: '14th - 17th century',
-    description: 'A period of European cultural, artistic, political and scientific rebirth.',
-    relevance: 85,
-  },
-]
-
-const categories = [
-  'All',
-  'Civilization',
-  'Empire',
-  'Architecture',
-  'Technology',
-  'Science',
-  'Art',
-  'Politics',
-  'Religion',
-  'War',
-]
-
-const periods = [
-  'All Periods',
-  'Ancient (Before 500 CE)',
-  'Medieval (500-1500)',
-  'Early Modern (1500-1800)',
-  'Modern (1800-Present)',
-]
+import { useState } from 'react';
+import { CameraIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import FaceSearch from '@/components/face-search';
+import TextSearch from '@/components/text-search';
 
 export default function SearchPage() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('All')
-  const [selectedPeriod, setSelectedPeriod] = useState('All Periods')
-  const [showFilters, setShowFilters] = useState(false)
-
-  // Get search query from URL
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search)
-    const query = urlParams.get('q')
-    if (query) {
-      setSearchQuery(query)
-    }
-  }, [])
-
-  const filteredResults = searchResults.filter(result => {
-    const matchesQuery = searchQuery === '' || 
-      result.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      result.description.toLowerCase().includes(searchQuery.toLowerCase())
-    
-    const matchesCategory = selectedCategory === 'All' || result.category === selectedCategory
-    
-    return matchesQuery && matchesCategory
-  })
+  const [activeTab, setActiveTab] = useState<'face' | 'text'>('text');
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-        {/* Search Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Search Human Knowledge
+      <div className="max-w-7xl mx-auto py-8">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Find People
           </h1>
-          
-          {/* Search Bar */}
-          <div className="relative max-w-2xl">
-            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-              <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-            </div>
-            <input
-              type="text"
-              className="block w-full rounded-lg border-0 py-3 pl-10 pr-10 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 bg-white dark:bg-gray-800 shadow-sm"
-              placeholder="Search civilizations, events, people, achievements..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            {searchQuery && (
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Humapedia offers two powerful search methods to find people. Choose the method that works best for you.
+          </p>
+        </div>
+
+        {/* Search Method Tabs */}
+        <div className="max-w-4xl mx-auto mb-8">
+          <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-2">
+            <div className="grid grid-cols-2 gap-2">
               <button
-                onClick={() => setSearchQuery('')}
-                className="absolute inset-y-0 right-0 flex items-center pr-3"
+                onClick={() => setActiveTab('text')}
+                className={`flex items-center justify-center space-x-2 py-3 px-6 rounded-md font-medium transition-all ${
+                  activeTab === 'text'
+                    ? 'bg-blue-500 text-white shadow-md'
+                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
+                }`}
               >
-                <XMarkIcon className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+                <MagnifyingGlassIcon className="w-5 h-5" />
+                <span>Text Search</span>
               </button>
-            )}
-          </div>
-        </div>
-
-        {/* Filters */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Filters
-            </h2>
-            <button
-              onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-            >
-              <FunnelIcon className="h-4 w-4" />
-              {showFilters ? 'Hide' : 'Show'} Filters
-            </button>
-          </div>
-          
-          {showFilters && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-              {/* Category Filter */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Category
-                </label>
-                <select
-                  value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
-                >
-                  {categories.map((category) => (
-                    <option key={category} value={category}>
-                      {category}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              
-              {/* Period Filter */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Time Period
-                </label>
-                <select
-                  value={selectedPeriod}
-                  onChange={(e) => setSelectedPeriod(e.target.value)}
-                  className="block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
-                >
-                  {periods.map((period) => (
-                    <option key={period} value={period}>
-                      {period}
-                    </option>
-                  ))}
-                </select>
-              </div>
+              <button
+                onClick={() => setActiveTab('face')}
+                className={`flex items-center justify-center space-x-2 py-3 px-6 rounded-md font-medium transition-all ${
+                  activeTab === 'face'
+                    ? 'bg-blue-500 text-white shadow-md'
+                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
+                }`}
+              >
+                <CameraIcon className="w-5 h-5" />
+                <span>Face Search</span>
+              </button>
             </div>
-          )}
+          </div>
         </div>
 
-        {/* Results */}
-        <div>
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-              Search Results
-            </h2>
-            <span className="text-sm text-gray-600 dark:text-gray-400">
-              {filteredResults.length} results found
-            </span>
-          </div>
-          
-          <div className="space-y-6">
-            {filteredResults.map((result) => (
-              <div key={result.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md transition-shadow">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="inline-flex items-center rounded-full bg-primary-100 dark:bg-primary-900/30 px-2.5 py-0.5 text-xs font-medium text-primary-800 dark:text-primary-200">
-                        {result.category}
-                      </span>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {result.period}
-                      </span>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
-                        • {result.relevance}% relevant
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      {result.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      {result.description}
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center gap-4">
-                  <button className="text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-500 transition-colors">
-                    Read more
-                  </button>
-                  <button className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                    Add to bookmarks
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          {filteredResults.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-gray-600 dark:text-gray-400">
-                No results found for "{searchQuery}". Try adjusting your search terms or filters.
+        {/* Search Method Description */}
+        <div className="max-w-4xl mx-auto mb-8">
+          {activeTab === 'text' ? (
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
+              <h2 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-2">
+                Text Search
+              </h2>
+              <p className="text-blue-700 dark:text-blue-300">
+                Search by name, company, or keywords. This method is completely free and provides instant results with advanced filtering options.
               </p>
+              <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div className="flex items-center">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                  <span className="text-blue-700 dark:text-blue-300">Free to use</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                  <span className="text-blue-700 dark:text-blue-300">Instant results</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                  <span className="text-blue-700 dark:text-blue-300">Advanced filters</span>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-6">
+              <h2 className="text-xl font-semibold text-purple-900 dark:text-purple-100 mb-2">
+                Face Search
+              </h2>
+              <p className="text-purple-700 dark:text-purple-300">
+                Upload a photo to find matching profiles using AI analysis. This method costs 3 credits per search and provides high-accuracy results.
+              </p>
+              <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div className="flex items-center">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                  <span className="text-purple-700 dark:text-purple-300">AI-powered analysis</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                  <span className="text-purple-700 dark:text-purple-300">High accuracy</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                  <span className="text-purple-700 dark:text-purple-300">3 credits per search</span>
+                </div>
+              </div>
             </div>
           )}
+        </div>
+
+        {/* Search Component */}
+        <div className="max-w-6xl mx-auto">
+          {activeTab === 'text' ? <TextSearch /> : <FaceSearch />}
+        </div>
+
+        {/* Additional Information */}
+        <div className="max-w-4xl mx-auto mt-12">
+          <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+              About Our Search Methods
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-medium text-gray-900 dark:text-white mb-2">Text Search</h4>
+                <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                  <li>• Search by name, company, or keywords</li>
+                  <li>• Apply filters by location, profession, or company</li>
+                  <li>• Completely free with no credit cost</li>
+                  <li>• Instant results with pagination</li>
+                  <li>• View detailed profiles and contact information</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-medium text-gray-900 dark:text-white mb-2">Face Search</h4>
+                <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                  <li>• Upload photos with clear faces</li>
+                  <li>• AI-powered facial recognition analysis</li>
+                  <li>• Costs 3 credits per search</li>
+                  <li>• High accuracy matching with confidence scores</li>
+                  <li>• Apply additional filters for better results</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 } 
