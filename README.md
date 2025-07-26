@@ -1,104 +1,84 @@
 # Humapedia 👥
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Website](https://img.shields.io/badge/Website-humapedia.org-blue.svg)](https://humapedia.org)
-[![GitHub stars](https://img.shields.io/github/stars/your-username/humapedia.svg)](https://github.com/your-username/humapedia/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/your-username/humapedia.svg)](https://github.com/your-username/humapedia/network)
+> **The Collaborative Internet Human Encyclopedia for Finding People**
 
-> **A collaborative internet human encyclopedia** - Discover, explore, and connect with people through advanced AI-powered face recognition and intelligent text search capabilities.
+[![GitHub Repo](https://img.shields.io/badge/GitHub-humapedia%2Fhumapedia-blue?logo=github)](https://github.com/humapedia/humapedia.git)
+
+---
 
 ## 📋 Table of Contents
-
 - [About Humapedia](#about-humapedia)
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
+- [Core Components & Pages](#core-components--pages)
 - [Contributing](#contributing)
 - [Roadmap](#roadmap)
 - [Support](#support)
 - [License](#license)
 
+---
+
 ## 🌟 About Humapedia
 
-Humapedia is a revolutionary collaborative human encyclopedia that offers two powerful search methods to find and connect with people. Our platform combines advanced AI face recognition technology with intelligent text search capabilities to create the most comprehensive people discovery platform on the internet.
+Humapedia is a next-generation, collaborative internet human encyclopedia designed specifically for **finding people**. Leveraging advanced AI-powered face recognition and intelligent text search, Humapedia enables users to discover, connect, and learn about individuals from around the world. Our mission is to make people search accessible, secure, and privacy-conscious for everyone.
 
 ### What Makes Humapedia Unique?
+- **AI-Powered Face Search**: Upload a photo to find matching profiles using state-of-the-art facial recognition (costs 3 credits per search).
+- **Intelligent Text Search**: Search by name, company, or keywords, with advanced filters for location, profession, and more.
+- **Credit System**: Fair usage with a transparent credit system for premium features.
+- **Comprehensive Profiles**: Rich, detailed user profiles with social links, experience, and more.
+- **Privacy First**: User privacy and data protection are core principles.
+- **Modern UI/UX**: Clean, responsive, and accessible design.
+- **Community-Driven**: Open to contributions and feedback from users worldwide.
 
-- **AI Face Recognition**: Upload photos to find matching profiles instantly
-- **Intelligent Text Search**: Search by name, company, or keywords with advanced filters
-- **Comprehensive Database**: Extensive collection of people profiles and information
-- **Community-Driven**: Collaborative platform for knowledge sharing and verification
-- **Privacy-First**: Secure and ethical handling of personal information
+---
 
 ## ✨ Features
 
-### 🎯 Core Features
+### 🔍 Search & Discovery
+- **Face Search**: Upload a clear photo, apply filters, and let AI find matching profiles (3 credits per search).
+- **Text Search**: Search by name, company, or keywords. Apply filters for location, profession, and more.
+- **Search History**: View, repeat, and manage your past searches with analytics and statistics.
 
-- **Face Search**: Upload photos to find matching profiles using AI analysis
-- **Text Search**: Search by name, company, or keywords with advanced filtering
-- **Profile Database**: Comprehensive collection of people profiles and information
-- **AI Analysis**: Advanced facial recognition and matching algorithms
-- **Search Results**: Detailed matching profiles with confidence scores
+### 👤 Profile Management
+- **Detailed Profiles**: View and manage comprehensive user profiles.
+- **Favorites & Sharing**: Save favorite profiles and share them easily.
 
-### 🚀 Advanced Features
+### 💳 Credit System
+- **Purchase Credits**: Multiple packages, instant delivery, and secure payment options.
+- **Credit Usage Tracking**: Transparent usage and purchase history.
 
-- **Credit System**: Fair usage with credit-based AI analysis (3 credits per face search)
-- **Advanced Filters**: Filter by location, profession, company, and more
-- **Real-time Updates**: Live profile synchronization and updates
-- **API Access**: RESTful API for developers and integrations
-- **Privacy Controls**: Secure handling and storage of personal information
+### 📊 Analytics & Visualization
+- **Analytics Dashboard**: Key metrics, top searches, and user activity insights.
+- **Data Visualization**: Interactive charts and graphs for trends and growth.
 
-### 🎨 User Experience
+### 🛠️ User Tools
+- **User Settings**: Manage profile, privacy, preferences, and security.
+- **Notification Center**: Stay updated with important alerts and search results.
+- **Help Center**: FAQ, help articles, and contact support.
 
-- **Modern UI/UX**: Clean, intuitive interface design
-- **Accessibility**: WCAG 2.1 compliant for inclusive access
-- **Performance**: Fast loading times and optimized performance
-- **Mobile-First**: Designed for mobile and desktop users
+### 🌙 Modern Experience
+- **Dark/Light Theme**: Seamless theme switching.
+- **Responsive Design**: Optimized for all devices.
+- **Accessibility**: WCAG 2.1 compliant.
+
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-
 - Node.js (v18 or higher)
-- npm or yarn package manager
+- npm or yarn
 - Modern web browser
 - Git
 
 ### Quick Start
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/your-username/humapedia.git
-   cd humapedia
-   ```
-
-2. **Install dependencies**
-
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:3000`
-
-## 📦 Installation
-
-### Development Setup
-
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/humapedia.git
-
-# Navigate to project directory
+git clone https://github.com/humapedia/humapedia.git
 cd humapedia
 
 # Install dependencies
@@ -109,211 +89,152 @@ cp .env.example .env.local
 
 # Start development server
 npm run dev
-```
 
-### Production Deployment
-
-```bash
-# Build the application
-npm run build
-
-# Start production server
-npm start
+# Open your browser at http://localhost:3000
 ```
 
 ### Docker Deployment
-
 ```bash
 # Build Docker image
 docker build -t humapedia .
-
 # Run container
 docker run -p 3000:3000 humapedia
 ```
 
+---
+
 ## 💻 Usage
 
+### Main Navigation
+1. **Search**: Use Face Search or Text Search to find people.
+2. **Credits**: Manage and purchase credits for premium features.
+3. **History**: View and analyze your search history.
+4. **Analytics**: Explore platform-wide search and user analytics.
+5. **Settings**: Manage your account, privacy, and preferences.
+6. **Notifications**: Stay updated with alerts and search results.
+7. **Help**: Access FAQ, help articles, and support.
+8. **Visualization**: Explore interactive data visualizations.
+
 ### Search Methods
+- **Face Search**: Upload a photo, apply filters, and view AI-matched profiles. Each search costs 3 credits.
+- **Text Search**: Enter a name, company, or keywords. Apply filters and browse results.
 
-Humapedia offers two powerful search methods to find people:
-
-#### 🔍 Face Search
-Upload a photo to find matching profiles using AI analysis:
-
-1. **Upload Photo**: Select a clear photo with visible face
-2. **AI Analysis**: Our system analyzes the image (costs 3 credits)
-3. **View Results**: Browse matching profiles with confidence scores
-4. **Apply Filters**: Refine results by location, profession, or company
-
-#### 📝 Text Search
-Search by name, company, or keywords:
-
-1. **Enter Query**: Type name, company, or keywords
-2. **Apply Filters**: Use location, profession, or company filters
-3. **Browse Results**: View detailed search results
-4. **Save Searches**: Bookmark important searches for later
-
-### Advanced Features
-
-- **Profile Management**: Create and manage your own profile
-- **Search History**: Track your previous searches
-- **Credit System**: Purchase credits for AI face analysis
-- **Privacy Settings**: Control your profile visibility
-- **Export Data**: Download your search results and profile data
+---
 
 ## 🔌 API Documentation
 
 ### REST API Endpoints
 
-```javascript
-// Face Search - Upload photo for AI analysis
-POST /api/face-search
-Content-Type: multipart/form-data
-{
-  "image": "photo_file",
-  "filters": {
-    "location": "string",
-    "profession": "string",
-    "company": "string"
-  }
-}
+#### **Face Search**
+- `POST /api/face-search` — Perform an AI-powered face search (requires image data, costs 3 credits)
 
-// Text Search - Search by name, company, or keywords
-GET /api/text-search?q=query&location=string&profession=string&company=string
+#### **Text Search**
+- `GET /api/text-search` — Search for people by name, company, or keywords (supports filters)
 
-// Get profile details
-GET /api/profiles/:id
+#### **Profiles**
+- `GET /api/profiles/:id` — Get detailed profile information
+- `PUT /api/profiles/:id` — Update profile information
+- `DELETE /api/profiles/:id` — Delete a profile
 
-// Get search history
-GET /api/search-history
+#### **Credits**
+- `GET /api/credits` — Get current user credit balance and pricing
+- `POST /api/credits` — Purchase credits
 
-// Get user credits
-GET /api/credits
+#### **Search History**
+- `GET /api/search-history` — Fetch user search history and stats
+- `POST /api/search-history` — Save a new search entry
+- `DELETE /api/search-history` — Delete a search entry or clear all
 
-// Purchase credits
-POST /api/credits/purchase
-{
-  "amount": "number",
-  "payment_method": "string"
-}
-```
+#### **Notifications**
+- `GET /api/notifications` — Fetch user notifications
+- `POST /api/notifications` — Mark as read, dismiss, etc.
 
-### Authentication
+---
 
-```javascript
-// API Key authentication
-Authorization: Bearer YOUR_API_KEY
-```
+## 🧩 Core Components & Pages
 
-### Rate Limiting
+- **FaceSearch**: AI-powered face search UI
+- **TextSearch**: Intelligent text search UI
+- **ProfileCard**: Rich profile display component
+- **CreditsManager**: Manage and purchase credits
+- **SearchHistory**: View and analyze search history
+- **AnalyticsDashboard**: Platform analytics and insights
+- **DataVisualization**: Interactive charts and graphs
+- **UserSettings**: Manage profile, privacy, and security
+- **NotificationCenter**: Alerts and updates
+- **HelpCenter**: FAQ, help articles, and support
 
-- **Free Tier**: 100 requests/hour
-- **Pro Tier**: 1000 requests/hour
-- **Enterprise**: Custom limits
+### Main Pages
+- `/search` — Main search page (Face & Text Search)
+- `/credits` — Manage credits
+- `/history` — Search history
+- `/analytics` — Analytics dashboard
+- `/visualization` — Data visualization
+- `/settings` — User settings
+- `/notifications` — Notification center
+- `/help` — Help center
+
+---
 
 ## 🤝 Contributing
 
-We welcome contributions from the community! Here's how you can help:
+We welcome contributions from the community! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-### Ways to Contribute
-
-1. **Content Contributions**: Add articles, facts, or cultural information
-2. **Code Contributions**: Improve the platform's functionality
-3. **Bug Reports**: Report issues and suggest improvements
-4. **Documentation**: Help improve our documentation
-5. **Translation**: Help translate content to other languages
-
-### Contribution Guidelines
-
-1. **Fork the repository**
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. **Make your changes**
-4. **Test your changes**
-5. **Commit your changes**
-   ```bash
-   git commit -m 'Add amazing feature'
-   ```
-6. **Push to the branch**
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-7. **Open a Pull Request**
+### How to Contribute
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test your changes
+5. Commit with a meaningful message
+6. Push and open a Pull Request
 
 ### Code Style
-
-- Follow ESLint configuration
-- Use TypeScript for type safety
+- Follow ESLint and Prettier configuration
+- Use TypeScript
 - Write meaningful commit messages
 - Include tests for new features
 
+---
+
 ## 🗺️ Roadmap
 
-### Phase 1: Foundation (Q1 2024)
+### Phase 1: People Search Foundation
+- Face and text search
+- Profile management
+- Credit system
+- Search history
 
-- [x] Basic website structure
-- [x] Core content management
-- [x] Search functionality
-- [ ] User authentication
+### Phase 2: Analytics & Visualization
+- Analytics dashboard
+- Data visualization
+- Notification system
 
-### Phase 2: Enhancement (Q2 2024)
+### Phase 3: Community & Expansion
+- User contributions
+- Advanced privacy controls
+- Multilingual support
 
-- [ ] Advanced search algorithms
-- [ ] Mobile app development
-- [ ] API documentation
-- [ ] Community features
+### Phase 4: Innovation
+- AI-powered recommendations
+- Mobile app
+- Global partnerships
 
-### Phase 3: Expansion (Q3 2024)
-
-- [ ] AI-powered recommendations
-- [ ] Virtual reality experiences
-- [ ] Educational partnerships
-- [ ] Multilingual expansion
-
-### Phase 4: Innovation (Q4 2024)
-
-- [ ] Blockchain integration
-- [ ] AR/VR content
-- [ ] Global partnerships
-- [ ] Advanced analytics
+---
 
 ## 🆘 Support
-
-### Getting Help
-
 - **Documentation**: [docs.humapedia.org](https://docs.humapedia.org)
 - **Community Forum**: [community.humapedia.org](https://community.humapedia.org)
-- **Discord**: [Join our Discord server](https://discord.gg/humapedia)
 - **Email**: support@humapedia.org
+- **GitHub**: [https://github.com/humapedia/humapedia.git](https://github.com/humapedia/humapedia.git)
 
-### Reporting Issues
-
-- **Bug Reports**: [GitHub Issues](https://github.com/your-username/humapedia/issues)
-- **Feature Requests**: [GitHub Discussions](https://github.com/your-username/humapedia/discussions)
-- **Security Issues**: security@humapedia.org
+---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Contributors**: All the amazing people who contribute to Humapedia
-- **Open Source**: Built with amazing open source technologies
-- **Community**: Our global community of knowledge seekers
-- **Partners**: Educational institutions and cultural organizations
-
-## 📊 Project Statistics
-
-![GitHub stars](https://img.shields.io/github/stars/your-username/humapedia)
-![GitHub forks](https://img.shields.io/github/forks/your-username/humapedia)
-![GitHub issues](https://img.shields.io/github/issues/your-username/humapedia)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/your-username/humapedia)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
 **Made with ❤️ by the Humapedia Team**
 
-_Empowering humanity through knowledge sharing and cultural preservation._
+_Empowering people search and connection through AI and community._
