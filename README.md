@@ -1,23 +1,44 @@
 # Humapedia 👥
 
-> **The Collaborative Internet Human Encyclopedia for Finding People**
-
 [![GitHub Repo](https://img.shields.io/badge/GitHub-humapedia%2Fhumapedia-blue?logo=github)](https://github.com/humapedia/humapedia.git)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/humapedia/humapedia/ci.yml?branch=main)](https://github.com/humapedia/humapedia/actions)
+[![Coverage Status](https://img.shields.io/codecov/c/github/humapedia/humapedia)](https://codecov.io/gh/humapedia/humapedia)
+[![Contributors](https://img.shields.io/github/contributors/humapedia/humapedia)](https://github.com/humapedia/humapedia/graphs/contributors)
+[![Last Commit](https://img.shields.io/github/last-commit/humapedia/humapedia)](https://github.com/humapedia/humapedia/commits/main)
+
+> **The Collaborative Internet Human Encyclopedia for Finding People**
 
 ---
 
 ## 📋 Table of Contents
+- [Vision](#vision)
 - [About Humapedia](#about-humapedia)
 - [Features](#features)
+- [Architecture Overview](#architecture-overview)
+- [Privacy & Ethics](#privacy--ethics)
+- [Community & Governance](#community--governance)
 - [Getting Started](#getting-started)
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
 - [Core Components & Pages](#core-components--pages)
+- [FAQ](#faq)
+- [Changelog & Updates](#changelog--updates)
 - [Contributing](#contributing)
 - [Roadmap](#roadmap)
 - [Support](#support)
 - [License](#license)
+
+---
+
+## 🌠 Vision
+
+Humapedia envisions a world where every person can be discovered, connected, and understood through ethical, AI-powered technology. We believe in a future where people search is:
+- **Accessible**: Open to all, regardless of background or location
+- **Empowering**: Enabling meaningful connections and knowledge sharing
+- **Ethical**: Built on privacy, transparency, and user control
+- **Innovative**: Leveraging the latest in AI, data, and web technology
 
 ---
 
@@ -64,6 +85,54 @@ Humapedia is a next-generation, collaborative internet human encyclopedia design
 - **Dark/Light Theme**: Seamless theme switching.
 - **Responsive Design**: Optimized for all devices.
 - **Accessibility**: WCAG 2.1 compliant.
+
+---
+
+## 🏗️ Architecture Overview
+
+### Frontend
+- **Framework**: Next.js 14 (App Router), React 18, TypeScript
+- **Styling**: Tailwind CSS, Heroicons, Framer Motion, Next-themes
+- **State Management**: React hooks, Context API
+- **Testing**: Jest, React Testing Library
+
+### Backend/API
+- **API**: Next.js API Routes, RESTful endpoints
+- **Validation**: Zod for schema validation
+- **Mock Data**: In-memory mock DB for rapid prototyping
+- **Authentication**: (Planned) OAuth, JWT, and session management
+
+### AI & Data
+- **Face Recognition**: AI-powered image analysis (integration-ready)
+- **Search Algorithms**: Intelligent text and filter-based search
+- **Analytics**: Usage tracking, search statistics, and reporting
+
+### Security
+- **Data Protection**: Secure handling of user data and images
+- **Rate Limiting**: Prevent abuse of search endpoints
+- **Role-Based Access**: (Planned) Admin, user, and guest roles
+- **CI/CD**: GitHub Actions, Docker, Husky, ESLint, Prettier
+
+---
+
+## 🛡️ Privacy & Ethics
+
+- **User Consent**: All face searches require explicit user action and consent
+- **Data Minimization**: Only essential data is stored; no unnecessary retention
+- **Transparency**: Clear privacy policy and user controls
+- **Right to Be Forgotten**: Users can delete their data and search history
+- **Ethical AI**: No use of AI for surveillance or discrimination
+- **Open Source**: Code and algorithms are open for review and improvement
+
+---
+
+## 🌍 Community & Governance
+
+- **Open Governance**: Decisions made transparently with community input
+- **Code of Conduct**: Inclusive, respectful, and safe environment
+- **Contribution Guidelines**: Clear process for code, docs, and ideas
+- **Recognition**: Top contributors and community champions highlighted
+- **Events**: Regular community calls, hackathons, and feedback sessions
 
 ---
 
@@ -119,6 +188,39 @@ docker run -p 3000:3000 humapedia
 - **Face Search**: Upload a photo, apply filters, and view AI-matched profiles. Each search costs 3 credits.
 - **Text Search**: Enter a name, company, or keywords. Apply filters and browse results.
 
+### Example: Face Search Flow
+```text
+1. Go to /search and select the "Face Search" tab
+2. Upload a clear photo (JPEG, PNG, WebP, max 10MB)
+3. (Optional) Add filters: location, profession, company
+4. Click "Analyze" — 3 credits will be deducted
+5. View matching profiles with confidence scores and details
+```
+
+### Example: Text Search Flow
+```text
+1. Go to /search and select the "Text Search" tab
+2. Enter a name, company, or keywords
+3. (Optional) Add filters: location, profession, company
+4. Click "Search"
+5. Browse paginated results and view detailed profiles
+```
+
+### Example: Credits Purchase
+```text
+1. Go to /credits
+2. Select a credit package (e.g., 10, 50, 100 credits)
+3. Choose payment method (credit card, PayPal, Stripe)
+4. Complete purchase and credits are instantly added
+```
+
+### Screenshots
+<!--
+Add screenshots here for UI walkthroughs, e.g.:
+![Face Search UI](docs/screenshots/face-search.png)
+![Analytics Dashboard](docs/screenshots/analytics-dashboard.png)
+-->
+
 ---
 
 ## 🔌 API Documentation
@@ -173,6 +275,36 @@ docker run -p 3000:3000 humapedia
 - `/settings` — User settings
 - `/notifications` — Notification center
 - `/help` — Help center
+
+---
+
+## ❓ FAQ
+
+**Q: Is my data safe on Humapedia?**
+A: Yes. We use strong encryption, never sell your data, and give you full control over your information.
+
+**Q: How does face search work?**
+A: We use AI to analyze facial features in uploaded images and match them to profiles in our database. Each search costs 3 credits to ensure fair use.
+
+**Q: Can I delete my search history or profile?**
+A: Absolutely. You can delete your search history or your entire profile at any time from your settings.
+
+**Q: What if I run out of credits?**
+A: You can still browse profiles, but will need to purchase more credits to perform new face searches.
+
+**Q: How can I contribute?**
+A: Fork the repo, make your changes, and open a pull request! See [Contributing](#contributing) for more.
+
+---
+
+## 📝 Changelog & Updates
+
+See [CHANGELOG.md](CHANGELOG.md) for a full history of updates and improvements.
+
+- **2024-06-01**: Major refactor to people search focus, new UI, and analytics
+- **2024-05-20**: Added credit system and payment integration
+- **2024-05-10**: Launched analytics dashboard and data visualization
+- **2024-05-01**: Initial release with face and text search
 
 ---
 
