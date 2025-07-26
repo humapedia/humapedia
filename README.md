@@ -1,11 +1,11 @@
-# Humapedia 🌍
+# Humapedia 👥
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Website](https://img.shields.io/badge/Website-humapedia.org-blue.svg)](https://humapedia.org)
 [![GitHub stars](https://img.shields.io/github/stars/your-username/humapedia.svg)](https://github.com/your-username/humapedia/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/your-username/humapedia.svg)](https://github.com/your-username/humapedia/network)
 
-> **The Ultimate Human Knowledge Encyclopedia** - A comprehensive platform for exploring human history, culture, achievements, and knowledge across all civilizations and time periods.
+> **A collaborative internet human encyclopedia** - Discover, explore, and connect with people through advanced AI-powered face recognition and intelligent text search capabilities.
 
 ## 📋 Table of Contents
 
@@ -22,33 +22,33 @@
 
 ## 🌟 About Humapedia
 
-Humapedia is an innovative knowledge platform that serves as a comprehensive encyclopedia of human civilization. Our mission is to preserve, organize, and make accessible the vast wealth of human knowledge, achievements, and cultural heritage from ancient times to the present day.
+Humapedia is a revolutionary collaborative human encyclopedia that offers two powerful search methods to find and connect with people. Our platform combines advanced AI face recognition technology with intelligent text search capabilities to create the most comprehensive people discovery platform on the internet.
 
 ### What Makes Humapedia Unique?
 
-- **Comprehensive Coverage**: From ancient civilizations to modern innovations
-- **Interactive Learning**: Engaging multimedia content and interactive timelines
-- **Global Perspective**: Multilingual support and diverse cultural viewpoints
-- **Community-Driven**: Open contribution system for knowledge sharing
-- **AI-Powered**: Intelligent search and content recommendations
+- **AI Face Recognition**: Upload photos to find matching profiles instantly
+- **Intelligent Text Search**: Search by name, company, or keywords with advanced filters
+- **Comprehensive Database**: Extensive collection of people profiles and information
+- **Community-Driven**: Collaborative platform for knowledge sharing and verification
+- **Privacy-First**: Secure and ethical handling of personal information
 
 ## ✨ Features
 
 ### 🎯 Core Features
 
-- **Knowledge Base**: Extensive database of human achievements, inventions, and discoveries
-- **Timeline Explorer**: Interactive historical timelines with visual representations
-- **Cultural Atlas**: Geographic exploration of world cultures and traditions
-- **Achievement Gallery**: Showcase of human milestones and breakthroughs
-- **Search & Discovery**: Advanced search with AI-powered recommendations
+- **Face Search**: Upload photos to find matching profiles using AI analysis
+- **Text Search**: Search by name, company, or keywords with advanced filtering
+- **Profile Database**: Comprehensive collection of people profiles and information
+- **AI Analysis**: Advanced facial recognition and matching algorithms
+- **Search Results**: Detailed matching profiles with confidence scores
 
 ### 🚀 Advanced Features
 
-- **Multilingual Support**: Content available in multiple languages
-- **Responsive Design**: Optimized for all devices and screen sizes
-- **Real-time Updates**: Live content synchronization
+- **Credit System**: Fair usage with credit-based AI analysis (3 credits per face search)
+- **Advanced Filters**: Filter by location, profession, company, and more
+- **Real-time Updates**: Live profile synchronization and updates
 - **API Access**: RESTful API for developers and integrations
-- **Community Features**: User contributions and discussions
+- **Privacy Controls**: Secure handling and storage of personal information
 
 ### 🎨 User Experience
 
@@ -133,40 +133,69 @@ docker run -p 3000:3000 humapedia
 
 ## 💻 Usage
 
-### Basic Navigation
+### Search Methods
 
-1. **Homepage**: Explore featured content and recent updates
-2. **Browse**: Navigate through different categories and topics
-3. **Search**: Use the search bar to find specific information
-4. **Timeline**: Explore historical events and achievements
-5. **Contributions**: Add your knowledge to the platform
+Humapedia offers two powerful search methods to find people:
+
+#### 🔍 Face Search
+Upload a photo to find matching profiles using AI analysis:
+
+1. **Upload Photo**: Select a clear photo with visible face
+2. **AI Analysis**: Our system analyzes the image (costs 3 credits)
+3. **View Results**: Browse matching profiles with confidence scores
+4. **Apply Filters**: Refine results by location, profession, or company
+
+#### 📝 Text Search
+Search by name, company, or keywords:
+
+1. **Enter Query**: Type name, company, or keywords
+2. **Apply Filters**: Use location, profession, or company filters
+3. **Browse Results**: View detailed search results
+4. **Save Searches**: Bookmark important searches for later
 
 ### Advanced Features
 
-- **Bookmarks**: Save interesting articles for later reading
-- **Notes**: Add personal notes to articles
-- **Sharing**: Share content on social media platforms
-- **Export**: Download content in various formats
+- **Profile Management**: Create and manage your own profile
+- **Search History**: Track your previous searches
+- **Credit System**: Purchase credits for AI face analysis
+- **Privacy Settings**: Control your profile visibility
+- **Export Data**: Download your search results and profile data
 
 ## 🔌 API Documentation
 
 ### REST API Endpoints
 
 ```javascript
-// Get all articles
-GET /api/articles
+// Face Search - Upload photo for AI analysis
+POST /api/face-search
+Content-Type: multipart/form-data
+{
+  "image": "photo_file",
+  "filters": {
+    "location": "string",
+    "profession": "string",
+    "company": "string"
+  }
+}
 
-// Get specific article
-GET /api/articles/:id
+// Text Search - Search by name, company, or keywords
+GET /api/text-search?q=query&location=string&profession=string&company=string
 
-// Search articles
-GET /api/search?q=query
+// Get profile details
+GET /api/profiles/:id
 
-// Get timeline data
-GET /api/timeline
+// Get search history
+GET /api/search-history
 
-// Get cultural data
-GET /api/cultures
+// Get user credits
+GET /api/credits
+
+// Purchase credits
+POST /api/credits/purchase
+{
+  "amount": "number",
+  "payment_method": "string"
+}
 ```
 
 ### Authentication
