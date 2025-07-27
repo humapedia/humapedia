@@ -301,10 +301,10 @@ A: Fork the repo, make your changes, and open a pull request! See [Contributing]
 
 See [CHANGELOG.md](CHANGELOG.md) for a full history of updates and improvements.
 
-- **2024-06-01**: Major refactor to people search focus, new UI, and analytics
-- **2024-05-20**: Added credit system and payment integration
-- **2024-05-10**: Launched analytics dashboard and data visualization
-- **2024-05-01**: Initial release with face and text search
+- **2025-06-01**: Major refactor to people search focus, new UI, and analytics
+- **2025-05-20**: Added credit system and payment integration
+- **2025-05-10**: Launched analytics dashboard and data visualization
+- **2025-05-01**: Initial release with face and text search
 
 ---
 
